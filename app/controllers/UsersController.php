@@ -61,6 +61,12 @@ class UsersController extends \BaseController {
         return View::make('users.login');
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }
+
     public function signin()
     {
         if (Auth::attempt(array('username'=>Input::get('username'), 'password'=>Input::get('password')))) {

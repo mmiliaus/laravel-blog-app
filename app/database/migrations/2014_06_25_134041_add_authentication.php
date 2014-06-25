@@ -14,6 +14,7 @@ class AddAuthentication extends Migration {
 	{
         Schema::table('users', function($table){
             $table->string('password', 64);
+            $table->string('remember_token', 100)->nullable();
         });
 	}
 
@@ -25,7 +26,7 @@ class AddAuthentication extends Migration {
 	public function down()
 	{
         Schema::table('users', function($table){
-            $table->dropColumn(['password']);
+            $table->dropColumn(['password', 'remember_token']);
         });
 	}
 

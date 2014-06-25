@@ -16,6 +16,7 @@ Route::resource('post', 'PostController');
 
 Route::get('users/login', ['uses' => 'UsersController@login']);
 Route::post('users/signin', ['uses' => 'UsersController@signin']);
+Route::get('users/logout', ['uses' => 'UsersController@logout']);
 Route::resource('users', 'UsersController');
 
 Route::get('/', ['uses' => 'HomeController@index']);
