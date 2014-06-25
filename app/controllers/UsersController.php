@@ -56,6 +56,22 @@ class UsersController extends \BaseController {
         }
 	}
 
+    public function login()
+    {
+        return View::make('users.login');
+    }
+
+    public function signin()
+    {
+        if (Auth::attempt(array('username'=>Input::get('username'), 'password'=>Input::get('password')))) {
+            return Redirect::intended('/')->with('success', 'You are now logged in!');
+        } else {
+            return Redirect::to('users/login')
+                ->with('message', 'Your username/password combination was incorrect')
+                ->withInput();
+        }
+    }
+
 
 	/**
 	 * Display the specified resource.

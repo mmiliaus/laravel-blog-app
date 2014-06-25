@@ -12,9 +12,11 @@
 */
 
 Route::resource('post', 'PostController');
+
+
+Route::get('users/login', ['uses' => 'UsersController@login']);
+Route::post('users/signin', ['uses' => 'UsersController@signin']);
 Route::resource('users', 'UsersController');
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', ['uses' => 'HomeController@index']);
+
